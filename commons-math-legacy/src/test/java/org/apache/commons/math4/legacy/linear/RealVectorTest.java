@@ -27,7 +27,7 @@ import org.junit.Test;
 /**
  * Tests for {@link RealVector}.
  */
-public class RealVectorTest extends RealVectorAbstractTest{
+public class RealVectorTest extends RealVectorAbstractTest {
 
     @Override
     public RealVector create(final double[] data) {
@@ -147,41 +147,6 @@ public class RealVectorTest extends RealVectorAbstractTest{
     }
 
     @Test
-    @Ignore("Abstract class RealVector does not implement ebeMultiply(RealVector)")
-    @Override
-    public void testEbeMultiplyDimensionMismatch() {
-        // Do nothing
-    }
-
-    @Test
-    @Ignore("Abstract class RealVector does not implement ebeDivide(RealVector)")
-    @Override
-    public void testEbeDivideSameType() {
-        // Do nothing
-    }
-
-    @Test
-    @Ignore("Abstract class RealVector does not implement ebeDivide(RealVector)")
-    @Override
-    public void testEbeDivideMixedTypes() {
-        // Do nothing
-    }
-
-    @Test
-    @Ignore("Abstract class RealVector does not implement ebeDivide(RealVector)")
-    @Override
-    public void testEbeDivideDimensionMismatch() {
-        // Do nothing
-    }
-
-    @Test
-    @Ignore("Abstract class RealVector does not implement getL1Norm()")
-    @Override
-    public void testGetL1Norm() {
-        // Do nothing
-    }
-
-    @Test
     @Ignore("Abstract class RealVector does not implement getLInfNorm()")
     @Override
     public void testGetLInfNorm() {
@@ -196,22 +161,22 @@ public class RealVectorTest extends RealVectorAbstractTest{
          */
         final double x = getPreferredEntryValue();
         final double[] data = {
-            x, x + 1d, x, x, x + 2d, x + 3d, x + 4d, x, x, x, x + 5d, x + 6d, x
+                x, x + 1d, x, x, x + 2d, x + 3d, x + 4d, x, x, x, x + 5d, x + 6d, x
         };
 
         RealVector v = create(data);
         Entry e;
         int i = 0;
         final double[] nonDefault = {
-            x + 1d, x + 2d, x + 3d, x + 4d, x + 5d, x + 6d
+                x + 1d, x + 2d, x + 3d, x + 4d, x + 5d, x + 6d
         };
         for (Iterator<Entry> it = v.sparseIterator(); it.hasNext(); i++) {
             e = it.next();
             Assert.assertEquals(nonDefault[i], e.getValue(), 0);
         }
-        double [] onlyOne = {x, x + 1d, x};
+        double[] onlyOne = { x, x + 1d, x };
         v = create(onlyOne);
-        for(Iterator<Entry> it = v.sparseIterator(); it.hasNext();) {
+        for (Iterator<Entry> it = v.sparseIterator(); it.hasNext();) {
             e = it.next();
             Assert.assertEquals(onlyOne[1], e.getValue(), 0);
         }
